@@ -1,0 +1,83 @@
+{
+  "playlistYoutube": [
+    {
+      "label": "RockSpanish",
+      "value": "https://youtube.com/playlist?list=PLhtNyfEvENxBBIcQ4GzdN79tJq47MJnDa"
+    },
+    {
+      "label": "Flamenco",
+      "value": "https://youtube.com/playlist?list=PLRZlMhcYkA2FvzMXIgBUQLdayTlEmYiIO"
+    },
+    {
+      "label": "Chill_Indie",
+      "value": "https://youtube.com/playlist?list=PLo3pNg0eiPc9QucHWnf-msi4iZZksjwP5"
+    },
+    {
+      "label": "Folk_Indie",
+      "value": "https://youtube.com/playlist?list=PLPbMT4wSxX8_M0SK_b-fboZWHJFIuMuey"
+    },
+    {
+      "label": "R_and_B_2000s",
+      "value": "https://youtube.com/playlist?list=PL4xqRMQ2GXamHodZ9kAj5pC4SKTaDfOyC"
+    },
+    {
+      "label": "R_and_B_Now",
+      "value": "https://youtube.com/playlist?list=PLIfl1ydekpBL188r0J2yw0RoavD702isJ"
+    },
+    {
+      "label": "Salsa",
+      "value": "https://youtube.com/playlist?list=PLD0kvNhPZ444CoLU7Z2ri3nbMn6uVDscR"
+    },
+    {
+      "label": "Jazz",
+      "value": "https://youtube.com/playlist?list=PL8F6B0753B2CCA128"
+    },
+    {
+      "label": "Classical_Music",
+      "value": "https://youtube.com/playlist?list=PLKBZ4ZnqO0Kr-KRKcpuS0DSFHmP1a188S"
+    },
+    {
+      "label": "Soul",
+      "value": "https://youtube.com/playlist?list=PLGBuKfnErZlAq0H6P6doTx1EiUP5L_Q3-"
+    },
+    {
+      "label": "KPOP",
+      "value": "https://youtube.com/playlist?list=PLOHoVaTp8R7dfrJW5pumS0iD_dhlXKv17"
+    },
+    {
+      "label": "Metal",
+      "value": "https://youtube.com/playlist?list=PLhQCJTkrHOwSX8LUnIMgaTq3chP1tiTut"
+    },
+    {
+      "label": "Punk",
+      "value": "https://youtube.com/playlist?list=PLztPI1ESxz5DmDh77Wy7VjumrnnIo6xyT"
+    },
+    {
+      "label": "Cumbia",
+      "value": "https://youtube.com/playlist?list=PLI_7Mg2Z_-4IzxbySOWX5xNT7vDV2HCgG"
+    },
+    {
+      "label": "Blues",
+      "value": "https://youtube.com/playlist?list=PLjzeyhEA84sQKuXp-rpM1dFuL2aQM_a3S"
+    },
+    {
+      "label": "Funk",
+      "value": "https://youtube.com/playlist?list=PLF51E3C78B01D792C"
+    },
+    {
+      "label": "Country",
+      "value": "https://youtube.com/playlist?list=PL3oW2tjiIxvQW6c-4Iry8Bpp3QId40S5S"
+    },{
+      "label":"Rock clásico epico",
+      "value":"https://youtube.com/playlist?list=PLWmBFrDArcHDtVxmMdqjXc4gJqqcx_li3"
+    },
+    {
+      "label":"ranked",
+      "value":"https://youtube.com/playlist?list=PLWmBFrDArcHB3wa17-MLjJxBuLYFvkHCx"
+    },
+    {
+      "label":"Random",
+      "value":"https://youtube.com/playlist?list=PL8NUHsNNhJTx_afvUJ2UwMLDmRhouTSIX"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+
+  "CLIENT_TOKEN":"OTYzMDE2NTk1MzA5OTkzOTk0.GZOdtc.pkfIkUTMMhV-6JiK_ndxwjffqhoY1RCdvoC1tQ",
+  "PREFIX":"!",
+  "NAME":"Lloro's Bot",
+  "AUTHOR_NAME":"Daniel",
+  "AUTHOR_NICKNAME":"Meek13",
+  "mongodb":"mongodb+srv://Meek13:131198_Dg@cluster0.ft7jw.mongodb.net/?retryWrites=true&w=majority",
+  "welcomeMessage":"Bienvenido {Usuario}!!❤ aquí podrás llorar acompañado por su bot de confianza ",
+  "totalComandos":"0",
+  "totalEvents":"0",
+  "totalEventsDistube":"0"
+}
