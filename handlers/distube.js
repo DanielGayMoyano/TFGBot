@@ -53,7 +53,7 @@ module.exports = (client, Discord) => {
 
         let text = data.channelId.toString();
         let result = text.substring(2, text.length - 1);
-        client.distube.setVolume(client.guild,100);
+        //client.distube.setVolume(client.guild,100);
         client.channels.fetch(result).then((channel) => {
           channel.send({ embeds: [embedMessage] });
         });
