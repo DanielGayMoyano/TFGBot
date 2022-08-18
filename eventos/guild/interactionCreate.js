@@ -1,7 +1,4 @@
-const { Discord } = require("discord.js");
-const { Distube } = require("distube");
-const loop = require("../../commands/music/loop.js");
-const play = require("../../commands/music/play.js");
+const { DisTube, Queue } = require("distube");
 const setupRadioChannel = require("../../modelos/setupRadioChannel.js");
 const {
   joinVoiceChannel,
@@ -10,7 +7,7 @@ const {
 } = require("@discordjs/voice");
 const { VoiceConnection } = require("@discordjs/voice");
 const playlists = require("../../playlist/playlists.json");
-module.exports = async (client, interaction, message, args) => {
+module.exports = (client, interaction, message, args) => {
   if (!interaction.member.voice?.channel)
     return interaction.reply(
       `❌**Tienes que estar en un canal de voz para ejecutar este comando!**`
@@ -22,25 +19,29 @@ module.exports = async (client, interaction, message, args) => {
     if (queue.playing) {
       client.distube.stop(interaction.guild.id);
     }
+  } else {
+    let canal=setupRadioChannel.findOne({guildId: interaction.guild.id},
+      async(err,data)=>{
+        if(!data) return;
+        let text = data.channelId.toString();
+        let result = text.substring(2, text.length - 1);
+        return result;
+      });
+    queue = new Queue(client.distube, interaction.member.voice, null, canal);
   }
-  //console.log(interaction.values[0]);
-  //console.log(client.distube.playing);
-  client.distube.play(
-    interaction.member.voice?.channel,
-    interaction.values[0],
-    {
+
+  client.distube
+    .play(interaction.member.voice?.channel, interaction.values[0], {
       member: interaction.member,
       textChannel: interaction.channelId,
       message,
-    }
-  );
+    });
   interaction.deferUpdate(`Buena elección`);
-
-  //console.log(queue.songs.length);
-  //queue.toogleAutoplay();
-  //loop.run(client, message);
-
-  //loop.run(client,message);
-
-  //console.log(queue);
+   
+    
+  //queue = client.distube.getQueue(interaction.guild); //.toggleAutoplay(interaction);
+  //let cola = client.distube.getQueue(interaction.guild.id);
+  //console.log(cola);
+  queue.setRepeatMode(2);
+  console.log(queue);
 };

@@ -26,21 +26,9 @@ module.exports = {
           .setPlaceholder("Elige el género de la radio")
           .addOptions([allPlaylist])
       );
-      
-      //console.log(row);
 
       message.channel.send({ embeds: [embedMessage], components: [row] });
     
-
-
-      /*
-      let embedMessage = new Discord.MessageEmbed()
-        .setColor("#0099ff")
-        .setTitle(`Radio ${config.NAME}`)
-        .setDescription(`Welcome to ${config.NAME} Radio`)
-        ;
-
-     */
     } catch (err) {
       console.log(err);
       message.reply(`❌**Se ha producido un error!**`);

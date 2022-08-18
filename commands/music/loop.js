@@ -9,7 +9,7 @@ module.exports = {
             `❌**Tienes que estar en un canal de voz para ejecutar este comando!**`
           );
         let queue = client.distube.getQueue(message.guild.id);
-
+console.log(message.guild.id);
         switch (queue.repeatMode) {
           case 0:
             queue.setRepeatMode(2);

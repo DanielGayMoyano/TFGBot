@@ -17,6 +17,6 @@ module.exports = async (client,message) => {
   if(command){
     command.run(client, message,args, data.prefijo)
   }else{
-    return message.reply("No he encontrado que me has especificado!");
+    return message.reply("No he encontrado el comando que me has especificado!");
   }
 };

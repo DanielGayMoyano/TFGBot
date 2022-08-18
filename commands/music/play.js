@@ -23,6 +23,8 @@ module.exports = {
       textChannel: message.channel,
       message,
     });
+    client.distube.setVolume(message.guild.id, 100);
     message.reply(`🔎 **Buscando \`${args.join(" ")}\`...**`);
+
   },
 };
