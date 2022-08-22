@@ -27,9 +27,9 @@ module.exports = (client, interaction, message, args) => {
         let result = text.substring(2, text.length - 1);
         return result;
       });
-    queue = new Queue(client.distube, interaction.member.voice, null, canal);
+    queue = new Queue(client.distube, interaction.member.voice, interaction.values[0], canal);
   }
-
+  
   client.distube
     .play(interaction.member.voice?.channel, interaction.values[0], {
       member: interaction.member,
