@@ -15,20 +15,33 @@ module.exports = (client, interaction, message, args) => {
   if (interaction.customId === "categories") {
     createMessageCategorie(client, interaction, message, args);
   }
-  //console.log(interaction.customId);
+  
 };
 function createMessageCategorie(client, interaction, message, args) {
-  const comandos = readdirSync(`./commands/${interaction.values[0]}`);
-  
+  const comandos = readdirSync(`./commands/${interaction.values[0]}`).filter((archivo) => archivo.endsWith(".js"));
+ 
   let listaComandos = [];
+  for (let archivo of comandos) {
+    console.log(comandos);
+    let comando = require(`../commands/${interaction.values[0]}/${archivo}`);
+   
+    if (comando.name) 
+    {
+      
 
-  comandos.forEach((c) => {
-    let categoria = {
-      "label": c.name,
-      "value": c.name,
-    };
-    listaComandos.push(categoria);
-  });
+        let com = {
+          "label": comando.name,
+          "value": comando.name,
+        };
+
+        listaComandos.push(com);
+      comandos++;
+    } 
+
+  }
+ 
+
+ 
 console.log(listaComandos)
   interaction.deferUpdate("");
 }
