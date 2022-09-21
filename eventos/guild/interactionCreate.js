@@ -1,4 +1,6 @@
 const { DisTube, Queue } = require("distube");
+const Discord = require("discord.js");
+const config = require("../../config/config.json");
 const setupRadioChannel = require("../../modelos/setupRadioChannel.js");
 const {
   joinVoiceChannel,
@@ -8,6 +10,9 @@ const {
 const { VoiceConnection } = require("@discordjs/voice");
 const playlists = require("../../playlist/playlists.json");
 const { readdirSync } = require("fs");
+const { MessageActionRow, MessageSelectMenu } = require("discord.js");
+const nombre= require(`../../handlers/manual.js`);
+
 module.exports = (client, interaction, message, args) => {
   if (interaction.customId === "playlists") {
     createRadio(client, interaction, message);
@@ -15,36 +20,64 @@ module.exports = (client, interaction, message, args) => {
   if (interaction.customId === "categories") {
     createMessageCategorie(client, interaction, message, args);
   }
-  
+  if (interaction.customId === "help-command") {
+    createMessageCommandInfo(client, interaction, message, args);
+  }
 };
 function createMessageCategorie(client, interaction, message, args) {
-  const comandos = readdirSync(`./commands/${interaction.values[0]}`).filter((archivo) => archivo.endsWith(".js"));
- 
+  const comandos = readdirSync(`./commands/${interaction.values[0]}`);
+
   let listaComandos = [];
   for (let archivo of comandos) {
-    console.log(comandos);
-    let comando = require(`../commands/${interaction.values[0]}/${archivo}`);
-   
-    if (comando.name) 
-    {
-      
+    //console.log(comandos);
+    let comando = require(`../../commands/${interaction.values[0]}/${archivo}`);
 
-        let com = {
-          "label": comando.name,
-          "value": comando.name,
-        };
+    if (comando.name) {
+      let com = {
+        label: comando.name,
+        value: comando.name,
+      };
 
-        listaComandos.push(com);
-      comandos++;
-    } 
-
+      listaComandos.push(com);
+      //comandos++;
+    }
   }
- 
+  let embed = new Discord.MessageEmbed()
+    .setColor(`#0099ff`)
+    .setTitle(`General ${interaction.values[0]}`)
+    .setThumbnail(
+      "https://www.geekmi.news/__export/1652632284587/sites/debate/img/2022/05/15/anya2.jpg_903948830.jpg"
+    )
+    .addFields(
+      {
+        name: "Total Commands",
+        value: `${config.totalComandos}`,
+      },
+      {
+        name: "Tip",
+        value: `\`${config.PREFIX}help <#command>\``,
+      },
+      {
+        name: "Author",
+        value: `${config.AUTHOR_NICKNAME}`,
+      }
+    );
+  console.log(listaComandos);
+  const selector = new MessageActionRow().addComponents(
+    new MessageSelectMenu()
+      .setCustomId("help-command")
+      .setPlaceholder("Elige el comando que quieras")
+      .addOptions([listaComandos])
+  );
 
- 
-console.log(listaComandos)
-  interaction.deferUpdate("");
+  nombre(client, interaction, message,{ embeds: [embed], components:[selector]});
+  //interaction.reply({ embeds: [embed],components:[row] });
+  //{ embeds: [embed], components: [selector] }
+  //  interaction.editReply();
+  //interaction.deferUpdate("");
 }
+
+function createMessageCommandInfo(client, interaction, message, args) {}
 
 function createRadio(client, interaction, message) {
   if (!interaction.member.voice?.channel)
