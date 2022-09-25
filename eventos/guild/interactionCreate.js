@@ -77,7 +77,11 @@ function createMessageCategorie(client, interaction, message, args) {
   //interaction.deferUpdate("");
 }
 
-function createMessageCommandInfo(client, interaction, message, args) {}
+function createMessageCommandInfo(client, interaction, message, args) {
+  const comandos = readdirSync(`./commands/${interaction.values[0]}`);
+  
+
+}
 
 function createRadio(client, interaction, message) {
   if (!interaction.member.voice?.channel)
