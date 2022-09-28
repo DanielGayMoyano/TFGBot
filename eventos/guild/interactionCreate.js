@@ -62,7 +62,7 @@ function createMessageCategorie(client, interaction, message, args) {
         value: `${config.AUTHOR_NICKNAME}`,
       }
     );
-  console.log(listaComandos);
+  //console.log(listaComandos);
   const selector = new MessageActionRow().addComponents(
     new MessageSelectMenu()
       .setCustomId("help-command")

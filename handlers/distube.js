@@ -27,10 +27,10 @@ module.exports = (client, Discord) => {
     },
     youtubeDL: false,
     plugins: [
-      new SpotifyPlugin({
+      /*new SpotifyPlugin({
         parallel: true,
         emitEventsAfterFetching: true,
-      }),
+      }),*/
       new SoundCloudPlugin(),
     ],
   });
