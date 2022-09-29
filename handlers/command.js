@@ -5,6 +5,7 @@ module.exports = (client) => {
     let comandos = 0;
     fs.readdirSync("./commands/").forEach((carpeta) => {
       const commands = fs.readdirSync(`./commands/${carpeta}`).filter((archivo) => archivo.endsWith(".js"));
+      console.log(commands);
       for (let archivo of commands) {
         let comando = require(`../commands/${carpeta}/${archivo}`);
         if (comando.name) 
@@ -21,6 +22,7 @@ module.exports = (client) => {
         }
       }
     });
+    
     console.log(`${comandos} Comandos cargados`.brightGreen);
     config.totalComandos=comandos.toString();
   } catch (e) {

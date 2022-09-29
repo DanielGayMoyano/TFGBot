@@ -11,9 +11,10 @@ const { VoiceConnection } = require("@discordjs/voice");
 const playlists = require("../../playlist/playlists.json");
 const { readdirSync } = require("fs");
 const { MessageActionRow, MessageSelectMenu } = require("discord.js");
-const nombre= require(`../../handlers/manual.js`);
+const nombre = require(`../../handlers/manual.js`);
 
 module.exports = (client, interaction, message, args) => {
+  let categoria;
   if (interaction.customId === "playlists") {
     createRadio(client, interaction, message);
   }
@@ -23,13 +24,13 @@ module.exports = (client, interaction, message, args) => {
   if (interaction.customId === "help-command") {
     createMessageCommandInfo(client, interaction, message, args);
   }
-};
+
 function createMessageCategorie(client, interaction, message, args) {
   const comandos = readdirSync(`./commands/${interaction.values[0]}`);
-
+  console.log(comandos);
+  
   let listaComandos = [];
   for (let archivo of comandos) {
-    //console.log(comandos);
     let comando = require(`../../commands/${interaction.values[0]}/${archivo}`);
 
     if (comando.name) {
@@ -39,7 +40,6 @@ function createMessageCategorie(client, interaction, message, args) {
       };
 
       listaComandos.push(com);
-      //comandos++;
     }
   }
   let embed = new Discord.MessageEmbed()
@@ -62,7 +62,7 @@ function createMessageCategorie(client, interaction, message, args) {
         value: `${config.AUTHOR_NICKNAME}`,
       }
     );
-  //console.log(listaComandos);
+
   const selector = new MessageActionRow().addComponents(
     new MessageSelectMenu()
       .setCustomId("help-command")
@@ -70,17 +70,17 @@ function createMessageCategorie(client, interaction, message, args) {
       .addOptions([listaComandos])
   );
 
-  nombre(client, interaction, message,{ embeds: [embed], components:[selector]});
-  //interaction.reply({ embeds: [embed],components:[row] });
-  //{ embeds: [embed], components: [selector] }
-  //  interaction.editReply();
-  //interaction.deferUpdate("");
+  nombre(client, interaction, message, {
+    embeds: [embed],
+    components: [selector],
+  });
 }
 
 function createMessageCommandInfo(client, interaction, message, args) {
-  const comandos = readdirSync(`./commands/${interaction.values[0]}`);
-  
-
+  const comandos = readdirSync(
+    `./commands/${categoria}/${interaction.values[0]}`
+  );
+  console.log(comandos);
 }
 
 function createRadio(client, interaction, message) {
@@ -125,3 +125,5 @@ function createRadio(client, interaction, message) {
   interaction.deferUpdate(`Buena elección`);
   queue.setRepeatMode(2);
 }
+
+};
