@@ -28,7 +28,7 @@ module.exports = (client, interaction, message, args) => {
 
   function createMessageCategorie(client, interaction, message, args) {
     const comandos = readdirSync(`./commands/${interaction.values[0]}`);
-    console.log(comandos);
+    //console.log(comandos);
 
     let listaComandos = [];
     for (let archivo of comandos) {
@@ -121,6 +121,7 @@ interaction.deferUpdate(" ");
 
     let queue = client.distube.getQueue(interaction.guild.id);
     //console.log(queue);
+    //console.log(queue);
     if (queue !== undefined) {
       if (queue.playing) {
         client.distube.stop(interaction.guild.id);
@@ -152,7 +153,10 @@ interaction.deferUpdate(" ");
         message,
       }
     );
+    //console.log(queue);
     interaction.deferUpdate(`Buena elección`);
     queue.setRepeatMode(2);
+    //client.distube.shuffle(interaction.guild);
+    console.log(queue.songs);
   }
 };

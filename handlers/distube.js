@@ -4,7 +4,7 @@ const { SoundCloudPlugin } = require("@distube/soundcloud");
 const { joinVoiceChannel } = require("@discordjs/voice");
 const setupRadioChannel = require("../modelos/setupRadioChannel.js");
 
-module.exports = (client, Discord) => {
+module.exports = (client, Discord,interaction) => {
   console.log(`Modulo de musica cargado`.red);
 
   client.distube = new DisTube(client, {
@@ -59,6 +59,8 @@ module.exports = (client, Discord) => {
         });
       }
     );
+    //console.log(queue);
+    
   });
 
   client.distube.on("addSong", (queue, song) => {
