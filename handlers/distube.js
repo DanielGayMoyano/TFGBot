@@ -4,7 +4,7 @@ const { SoundCloudPlugin } = require("@distube/soundcloud");
 const { joinVoiceChannel } = require("@discordjs/voice");
 const setupRadioChannel = require("../modelos/setupRadioChannel.js");
 
-module.exports = (client, Discord,interaction) => {
+module.exports = (client, Discord, interaction) => {
   console.log(`Modulo de musica cargado`.red);
 
   client.distube = new DisTube(client, {
@@ -38,7 +38,6 @@ module.exports = (client, Discord,interaction) => {
   //escuchammos los eventos de distube
 
   client.distube.on("playSong", (queue, song) => {
-    
     setupRadioChannel.findOne(
       { guildId: queue.textChannel.guildId },
       async (err, data) => {
@@ -60,7 +59,6 @@ module.exports = (client, Discord,interaction) => {
       }
     );
     //console.log(queue);
-    
   });
 
   client.distube.on("addSong", (queue, song) => {
@@ -68,12 +66,14 @@ module.exports = (client, Discord,interaction) => {
       { guildId: queue.textChannel.guildId },
       async (err, data) => {
         if (!data) return;
-        
+
         let text = data.channelId.toString();
         let result = text.substring(2, text.length - 1);
 
         client.channels.fetch(result).then((channel) => {
-          channel.send(`**Added ${song.name}-${song.formattedDuration} by ${song.user}**`);
+          channel.send(
+            `**Added ${song.name}-${song.formattedDuration} by ${song.user}**`
+          );
         });
       }
     );

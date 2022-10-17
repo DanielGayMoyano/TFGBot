@@ -25,7 +25,7 @@ module.exports = async (client) => {
     };
     await ["client", "guild"].forEach((e) => cargar_dir(e));
     console.log(`${cantidad} Eventos Cargados`.brightGreen);
-    config.totalEvents=cantidad.toString();
+    config.totalEvents = cantidad.toString();
 
     try {
       console.log(`Iniciando Sesión el Bot...`.yellow);
