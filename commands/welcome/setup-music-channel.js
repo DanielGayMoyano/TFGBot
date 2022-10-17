@@ -27,7 +27,7 @@ module.exports = {
           }).save();
         }
         
-        message.reply(`**Se ha establecido el canal para la radio\nCanal:${data.channelId}**`);
+        message.reply(`**Se ha establecido el canal para la música\nCanal:${data.channelId}**`);
       }
     );
   },

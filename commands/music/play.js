@@ -18,6 +18,9 @@ module.exports = {
       return message.reply(
         `❌ **Tienes que estar en el mismo canal de voz __QUE YO__ para ejecutar este comando!**`
       );
+      if(args[0].includes("open.spotify")){
+        return message.reply(`❌ **No se puede reproducir música de Spotify**`);
+      }
     client.distube.play(message.member.voice?.channel, args.join(" "), {
       member: message.member,
       textChannel: message.channel,

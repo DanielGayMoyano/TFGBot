@@ -67,17 +67,14 @@
     {
       "label": "Country",
       "value": "https://youtube.com/playlist?list=PL3oW2tjiIxvQW6c-4Iry8Bpp3QId40S5S"
-    },{
-      "label":"Rock clásico epico",
-      "value":"https://youtube.com/playlist?list=PLWmBFrDArcHDtVxmMdqjXc4gJqqcx_li3"
     },
     {
-      "label":"ranked",
-      "value":"https://youtube.com/playlist?list=PLWmBFrDArcHB3wa17-MLjJxBuLYFvkHCx"
+      "label": "ranked",
+      "value": "https://youtube.com/playlist?list=PLWmBFrDArcHB3wa17-MLjJxBuLYFvkHCx"
     },
     {
-      "label":"Random",
-      "value":"https://youtube.com/playlist?list=PL8NUHsNNhJTx_afvUJ2UwMLDmRhouTSIX"
+      "label": "Random",
+      "value": "https://youtube.com/playlist?list=PL8NUHsNNhJTx_afvUJ2UwMLDmRhouTSIX"
     }
   ]
 }
