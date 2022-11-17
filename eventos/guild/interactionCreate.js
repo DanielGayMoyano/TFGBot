@@ -70,7 +70,7 @@ module.exports = (client, interaction, message, args) => {
         .setPlaceholder("Elige el comando que quieras")
         .addOptions([listaComandos])
     );
-interaction.deferUpdate(" ");
+    interaction.deferUpdate(" ");
     nombre(client, interaction, message, {
       embeds: [embed],
       components: [selector],
@@ -82,12 +82,14 @@ interaction.deferUpdate(" ");
     //console.log(comandos);
     let commandAsked;
     readdirSync("./commands/").forEach((carpeta) => {
-      const commands = readdirSync(`./commands/${carpeta}`).filter((archivo) => archivo.endsWith(".js"));
+      const commands = readdirSync(`./commands/${carpeta}`).filter((archivo) =>
+        archivo.endsWith(".js")
+      );
       for (let archivo of commands) {
         let comando = require(`../../commands/${carpeta}/${archivo}`);
-        if (comando.name===interaction.values[0]) {
+        if (comando.name === interaction.values[0]) {
           //console.log(comando);
-          commandAsked=comando;
+          commandAsked = comando;
         }
       }
     });
@@ -107,7 +109,7 @@ interaction.deferUpdate(" ");
           value: `${config.AUTHOR_NICKNAME}`,
         }
       );
-      interaction.deferUpdate(" ");
+    interaction.deferUpdate(" ");
     nombre(client, interaction, message, {
       embeds: [embed],
     });
@@ -154,9 +156,10 @@ interaction.deferUpdate(" ");
       }
     );
     //console.log(queue);
+
     interaction.deferUpdate(`Buena elección`);
     queue.setRepeatMode(2);
     //client.distube.shuffle(interaction.guild);
-    console.log(queue.songs);
+    console.log(queue.songs[0].name);
   }
 };

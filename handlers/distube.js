@@ -35,7 +35,7 @@ module.exports = (client, Discord, interaction) => {
     ],
   });
 
-  //escuchammos los eventos de distube
+  //escuchamos los eventos de distube
 
   client.distube.on("playSong", (queue, song) => {
     setupRadioChannel.findOne(
