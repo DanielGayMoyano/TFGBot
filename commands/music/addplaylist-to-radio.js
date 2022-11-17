@@ -12,6 +12,7 @@ module.exports = {
 */
 
 //error
+    console.log(args[0]);
     let lista = JSON.parse(playlists);
     lista.playlistYoutube.push({ label: "prueba", value: "valor" });
     playlists = JSON.stringify(lista);

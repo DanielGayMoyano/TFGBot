@@ -6,7 +6,8 @@
   "AUTHOR_NAME":"Daniel",
   "AUTHOR_NICKNAME":"Meek13",
   "mongodb":"mongodb+srv://Meek13:131198_Dg@cluster0.ft7jw.mongodb.net/?retryWrites=true&w=majority",
-  "welcomeMessage":"Bienvenido {Usuario}!!❤ aquí podrás llorar acompañado por su bot de confianza ",
+  "welcomeMessage":"Bienvenido {Usuario}!!❤ Aquí podrás llorar acompañado por su bot de confianza ",
+  "goodbyeMessage":"Hasta la proxima {Usuario}!!💔 Siempre te recordaremos como un Llorón",
   "totalComandos":"0",
   "totalEvents":"0",
   "totalEventsDistube":"0"
