@@ -38,18 +38,20 @@ module.exports = (client, Discord, interaction) => {
   //escuchamos los eventos de distube
 
   client.distube.on("playSong", (queue, song) => {
-    setupRadioChannel.findOne(
-      { guildId: queue.textChannel.guildId },
-      async (err, data) => {
-        if (!data) return;
-        const embedMessage = new Discord.MessageEmbed()
+    const embedMessage = new Discord.MessageEmbed()
           .setColor("#0099ff")
           .setTitle(`${song.name}`)
           .setDescription(
             `Source: **${song.source}**\nDuration: **${song.formattedDuration}**\nUser: **${song.user}**`
           )
           .setThumbnail(song.thumbnail);
-
+            console.log(queue);
+    setupRadioChannel.findOne(
+      { guildId: queue.textChannel.guildId },
+      async (err, data) => {
+        if (!data) 
+        return;
+        
         let text = data.channelId.toString();
         let result = text.substring(2, text.length - 1);
         //client.distube.setVolume(client.guild,100);

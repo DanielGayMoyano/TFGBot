@@ -8,10 +8,17 @@ module.exports = {
   desc: "Asigna el rol por defecto a los nuevos usuarios en cada servidor, para evitar tener que hacerlo a mano.",
   run: async (client, message, args) => {
     const rol = args[0];
-    console.log(rol);
     if (!rol) {
       return message.reply(
         `El rol que ha mencionado no existe!\n**Uso** \`${config.PREFIX}setup-role-default <#ROLE>\``
+      );
+    }
+    let text = rol.toString();
+    let result = text.substring(3, text.length - 1);
+
+    if (message.guild.roles.cache.get(result) === undefined) {
+      return message.reply(
+        `**El argumento usado no es un rol!\nUso \`${config.PREFIX}setup-role-default <#CANAL>\`**`
       );
     }
     setupRoleDefault.findOne(
@@ -26,8 +33,9 @@ module.exports = {
             roleId: rol,
           }).save();
         }
-        console.log(data);
-        message.reply(`Se ha configurado correctamente el rol por defecto\n**Rol:** ${data.roleId}`);
+        message.reply(
+          `Se ha configurado correctamente el rol por defecto\n**Rol:** ${data.roleId}`
+        );
       }
     );
   },

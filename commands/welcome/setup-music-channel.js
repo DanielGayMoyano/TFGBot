@@ -9,11 +9,27 @@ module.exports = {
   desc: "Asigna un canal para toda que toda la música se muestre en ese canal de texto.",
   run: async (client, message, args) => {
     const channel = args[0];
+
+    
+
     if (!channel) {
       return message.reply(
-        `**El canal que ha mencionado no existe!\nUso \`${config.PREFIX}setup-radio-channel <#CANAL>\`**`
+        `**El canal que ha mencionado no existe!\nUso \`${config.PREFIX}setup-music-channel <#CANAL>\`**`
       );
     }
+    
+    let text = channel.toString();
+    let result = text.substring(2, text.length - 1);
+
+    //client.channels.fetch(result).then(canal => console.log(canal.name));
+    
+    
+    if(message.guild.channels.cache.get(result) === undefined)  { 
+      return message.reply(
+        `**El argumento usado no es un canal!\nUso \`${config.PREFIX}setup-music-channel <#CANAL>\`**`
+      );
+  } 
+
     setupRadioChannel.findOne(
       { guildId: message.guild.id },
       async (err, data) => {
@@ -26,8 +42,10 @@ module.exports = {
             channelId: channel,
           }).save();
         }
-        
-        message.reply(`**Se ha establecido el canal para la música\nCanal:${data.channelId}**`);
+
+        message.reply(
+          `**Se ha establecido el canal para la música\nCanal:${data.channelId}**`
+        );
       }
     );
   },

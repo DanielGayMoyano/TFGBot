@@ -19,6 +19,17 @@ module.exports = {
       return message.reply(
         `El canal que ha mencionado no existe!\n**Uso** \`${config.PREFIX}setup-welcome <#CANAL O ID>\``
       );
+      let text = channel.toString();
+    let result = text.substring(2, text.length - 1);
+
+    //client.channels.fetch(result).then(canal => console.log(canal.name));
+    
+    
+    if(message.guild.channels.cache.get(result) === undefined)  { 
+      return message.reply(
+        `**El argumento usado no es un canal!\nUso \`${config.PREFIX}setup-welcome <#CANAL>\`**`
+      );
+  } 
 
     setupWelcome.findOne({ guildId: message.guild.id }, async (err, data) => {
       if (data) {
