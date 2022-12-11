@@ -1,7 +1,7 @@
 module.exports = {
   name: "stop",
   aliases: ["pausar", "terminar"],
-  desc: "Para la lista de reproducción, además de quitar todas las canciones de la lista.",
+  desc: "Para la lista de reproducción, además de quitar todas las canciones de la lista y sacar al bot del canal de voz.",
   run: async (client, message, args) => {
     try {
       if (!message.member.voice?.channel)

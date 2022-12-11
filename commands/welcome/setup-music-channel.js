@@ -44,7 +44,7 @@ module.exports = {
         }
 
         message.reply(
-          `**Se ha establecido el canal para la música\nCanal:${data.channelId}**`
+          `**Se ha establecido el canal para la música\nCanal:${channel}**`
         );
       }
     );

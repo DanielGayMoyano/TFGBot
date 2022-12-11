@@ -1,7 +1,7 @@
 module.exports = {
   name: "shuffle",
   aliases: ["random", "aleatorio"],
-  desc: "Activa o desactiva el modo aleatorio en la cola de reproducción.",
+  desc: "Aleatoriza el orden de las canciones en la cola. Pero siempre manteniendo la que suena y la siguiente en ese orden.",
   run: async (client, message, args) => {
     if (!message.member.voice?.channel) {
       return message.reply(

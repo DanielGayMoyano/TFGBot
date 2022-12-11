@@ -1,7 +1,7 @@
 module.exports= {
     name:"pause",
     aliases:["pausar","parar","pausa"],
-    desc:"Si está reprodiendo algo lo pone en pausa, y en el caso que no esté reproduciendo nada, mostrará un mensaje de error.",
+    desc:"Si está reproduciendo algo lo pone en pausa, y en el caso que no esté reproduciendo nada, mostrará un mensaje de error.",
     run:async (client, message,args)=>{
         try{
         //if(!args.length) return message.reply(`❌ **Tienes que especificar el nombre de una cancion**`);

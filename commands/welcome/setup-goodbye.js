@@ -5,7 +5,7 @@ const { asegurar } = require("../../handlers/funciones");
 module.exports = {
   name: "setup-goodbye",
   aliases: ["goodbye-message"],
-  desc: "Asigna el canal donde se enviarán los mensajes de bienvenida a cada usuario que se una al servidor, mensaje si se pasa como argumento sobreescribe el mensaje por defecto.",
+  desc: "Asigna el canal donde se enviarán los mensajes de despedida a cada usuario que se vaya del servidor.",
   run: async (client, message, args) => {
     const channel = args[0];
     if (!channel) {
@@ -34,8 +34,9 @@ module.exports = {
           channelId: channel,
         }).save();
       }
+      console.log(data);
       message.reply(
-        `Se ha configurado correctamente el canal de despedida\n**Canal:** ${data.channelId}\n**Mensaje de despedida:** ${config.goodbyeMessage}`
+        `Se ha configurado correctamente el canal de despedida\n**Canal:** ${channel}\n**Mensaje de despedida:** ${config.goodbyeMessage}`
       );
     });
   },

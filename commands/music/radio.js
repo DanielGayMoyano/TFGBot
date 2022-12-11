@@ -6,7 +6,7 @@ const { MessageSelectMenu, MessageActionRow, Message, MessageEmbed } = require("
 module.exports = {
   name: "radio",
   aliases: ["playlists"],
-  desc: "Muestra un mensaje embed con una lista desplegable para elegir el género de la música que quieras que sea la radio. La radio no se parará ya que estará en un loop, además de que no se saldrá del canal aunque no haya nadie.",
+  desc: "Muestra un mensaje con una lista desplegable para elegir el género de la música que quieras que sea la radio.",
   run: async (client, message, args) => {
     try {
       let allPlaylist = [];

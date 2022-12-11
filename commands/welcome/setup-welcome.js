@@ -7,7 +7,7 @@ const { asegurar } = require("../../handlers/funciones");
 module.exports = {
   name: "setup-welcome",
   aliases: ["welcome-message"],
-  desc: "Asigna el canal donde se enviarán los mensajes de bienvenida a cada usuario que se una al servidor, mensaje si se pasa como argumento sobreescribe el mensaje por defecto.",
+  desc: "Asigna el canal donde se enviarán los mensajes de bienvenida a cada usuario que se una al servidor.",
   run: async (client, message, args) => {
     //if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No puedes usar este comando");
 
@@ -43,7 +43,7 @@ module.exports = {
         }).save();
       }
       message.reply(
-        `Se ha configurado correctamente el canal de bienvenida\n**Canal:** ${data.channelId}\n**Mensaje de bienvenida:** ${config.welcomeMessage}${config.NAME}`
+        `Se ha configurado correctamente el canal de bienvenida\n**Canal:** ${channel}\n**Mensaje de bienvenida:** ${config.welcomeMessage}${config.NAME}`
       );
     });
   },

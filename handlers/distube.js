@@ -45,7 +45,6 @@ module.exports = (client, Discord, interaction) => {
             `Source: **${song.source}**\nDuration: **${song.formattedDuration}**\nUser: **${song.user}**`
           )
           .setThumbnail(song.thumbnail);
-            console.log(queue);
     setupRadioChannel.findOne(
       { guildId: queue.textChannel.guildId },
       async (err, data) => {

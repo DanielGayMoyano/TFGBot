@@ -34,7 +34,7 @@ module.exports = {
           }).save();
         }
         message.reply(
-          `Se ha configurado correctamente el rol por defecto\n**Rol:** ${data.roleId}`
+          `Se ha configurado correctamente el rol por defecto\n**Rol:** ${rol}`
         );
       }
     );
